@@ -45,7 +45,7 @@ function loadAns() {
 }
 
 function assemble() {
-    al = loadAns()
+    al = loadAns();
     let as = matchA1(), ks = clean(matchK1());
     sx = [];
     for (let i = 0; i<al.length; i++) {
@@ -115,8 +115,13 @@ function ansk() {
         }
     }
     let ac = 0;
-    wr = []
-    ansarr.forEach((e, i) => e===qss[i][0]["a"]?ac+=1:wr.push([i, e, qss[i][0]]));
+    wr = [];
+    cr = []
+    ansarr.forEach((e, i) => {
+        if (e===qss[i][0]["a"])  {
+            ac+=1;cr.push([i, e, qss[i][0]])
+        } else wr.push([i, e, qss[i][0]])
+    });
     document.getElementById("tlch").style.display = "none";
     document.getElementById("qmain").style.display = "none";
     res = document.getElementById("res");
@@ -125,8 +130,31 @@ function ansk() {
 <text id="nametext" style="font-family: Calibri;font-size: 300%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Kết quả</text><br>
 <text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(20, 63, 66);text-align: center;display: block;">${ac}/40</text><br><br>
 <button onclick="start()" style="text-align: center;margin:auto; display:block;">Tạo đề mới</button><br><br><br>
-<text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Những câu sai</text><br>
     `)
+    console.log(cr);
+    if (cr.length > 0) {
+        res.insertAdjacentHTML("beforeend", `
+        <text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Những câu đúng</text><br>
+        `)
+        cr.forEach((e,i) => {
+            res.insertAdjacentHTML("beforeend", `
+<div id="ed${i}" style="margin: 5%;">
+<text id="nametext" style="font-family: Calibri;font-size: 200%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;">Câu ${e[0]+1}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">${e[2]["q"]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">A : ${e[2].s[0][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">B : ${e[2].s[1][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">C : ${e[2].s[2][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">D : ${e[2].s[3][0]}</text><br><br><br>
+<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;">Đáp án đã chọn : ${e[1] === -1 ? "Không chọn" : rconv[e[1]]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;">Đáp án đúng : ${rconv[e[2]["a"]]}</text><br>
+</div>
+            `)
+        });
+  }
+    res.insertAdjacentHTML("beforeend", `
+
+<text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Những câu sai</text><br>
+`)
     wr.forEach((e,i) => {
       res.insertAdjacentHTML("beforeend", `
 <div id="e${i}" style="margin: 5%;">
@@ -144,7 +172,7 @@ function ansk() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-const an = "BBDDDBCCCCCBABBBABBDBBCCCDDCCCDDBCCABBDBBBBACBABBBBDABAAADCABAABADCBCDCABABADCADACACCBAADDCADAABACACBABAACBBCBDBCCDBCCDADCAADACDDACACAABBCACBABBDBAAABCACBBCCDDCCCADABCDCDDBDDACCBDBBACACDBAAABCCBCCDBCDCBBCCABACAABBDDAAADDBCCACBDBDCDACBACDADCC"
+const an = "BBDDDBCCCCCBABBBABBDBBCCCDDCCCDDBCCABCBDBBBACBABBBBDABAAADCABAABADCBCDCABABADCADACACCBAADDCADAACACACBABAACBBCBDBCCDBCCDADCAADACDDACACAABBCACBABBDBAAABCACBBCCDDCCCADABCDCDDBDDACCBDBBACACDBAAABCCBCCDBCDCBBCCABACAABBDDAAADDBCCACBDBDCDACBACDADCC"
 
 
 const k = `Câu 1. Hội nghị Ianta có sự tham gia của các nước 
@@ -203,7 +231,7 @@ C.Là cơ sở để các nước tham gia tổ chức LHQ         D.Hiến chư
 Câu 14: Việt Nam từ khi gia nhập Liên hợp quốc đã có đóng góp gì?
 A.Xây dựng mối quan hệ hợp tác chặc chẽ có hiệu quả
 B.Trở thành ủy viên không thường trực của hội đồng bảo an nhiệm kì 2008-2009
-C.Có tiếng nói ngày càng quan trọng ở LHQ                      D.Tham gia tích cơcj các chương trình.
+C.Có tiếng nói ngày càng quan trọng ở LHQ                      D.Tham gia tích cực các chương trình.
 Câu 15: Việt Nam gia nhập Liên hợp quốc vào thời gian nào? Là thành viên bao nhiêu?
 A.8/1977,thứ 148            
 B.9/1977,thứ 149            
