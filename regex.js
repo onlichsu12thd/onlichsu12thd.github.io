@@ -1,11 +1,3 @@
-// (?<=(Câu ))(\d){1,2}(?!=(A:))(.)*
-// (?<=(A\.))(.)*(?=(B\.|\n( )*B))
-// (?<=(B\.))(.)*(?=(C\.|\n( )*C))
-// (?<=(C\.))(.)*(?=(D\.|\n( )*D))
-// (?<=(D\.))(.)*
-// 45 A 48 B 46 C 32 D
-// 1 25 2 26 3 20 4 30 5 20 6 30 7 20 8 20 9 25 10 25
-
 let qss = [];
 
 
@@ -26,7 +18,8 @@ function matchA1() {
     a = k.match(/(?<=(A\.))(.)*(?=(( )*B\.|\n( )*?B)(?!ài))/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
     b = k.match(/(?<=(B\.))(.)*(?=(( )*C\.|\n( )*?C)(?!âu))/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
     c = k.match(/(?<=(C\.))(.)*(?=(( )*D\.|\n( )*?D)(?!âu))/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
-    d = k.match(/(?<=(D\.))(.)*/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
+    d = k.match(/(?<=(D\.))(.)*(?=\n)/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
+    console.log(d);
     af = []
     for (let i = 0; i<a.length; i++) {
         af[i] = [[a[i], 0],[b[i], 1],[c[i], 2],[d[i],3]]
@@ -47,6 +40,7 @@ function loadAns() {
 function assemble() {
     al = loadAns();
     let as = matchA1(), ks = clean(matchK1());
+    console.log(ks)
     sx = [];
     for (let i = 0; i<al.length; i++) {
         sx[i] = {
@@ -131,7 +125,6 @@ function ansk() {
 <text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(20, 63, 66);text-align: center;display: block;">${ac}/40</text><br><br>
 <button onclick="start()" style="text-align: center;margin:auto; display:block;font-size: 200%;">Tạo đề mới</button><br><br><br>
     `)
-    console.log(cr);
     if (cr.length > 0) {
         res.insertAdjacentHTML("beforeend", `
         <text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Những câu đúng</text><br>
@@ -926,7 +919,7 @@ Câu 7. Trong sự phát triển 'thần kì' của Nhật Bản có nguyên nh�
 A.Lợi dụng vốn nước ngoài, tập trung đầu tư vào các ngành kĩ thuật then chốt.
 B.Biết tận dụng và khai thác những thành tựu khoa học-kĩ thuật.
 C. 'Len lách' xâm nhập vào thị trường các nước, thực hiện cải cách đân chủ.
-D Phát huy truyền thống tự lực tự cường của nhân dân Nhật Bản.
+D. Phát huy truyền thống tự lực tự cường của nhân dân Nhật Bản.
 Câu 8. Để phát triển khoa học kĩ thuật, ở Nhật Bản có hiện tượng gì ít thấy ở các nước khác?
 A.Coi trọng và phát triển nền giáo dục quốc dân, khoa học kĩ thuật.
 B. Đi sâu vào các ngành công nghiệp dân dụng.
@@ -973,14 +966,14 @@ A. Năm 1963
 B. Năm 1973                             
 C. Năm 1983         
 D. Năm 1984  
-  Câu 17. Chọn một câu trả lời đúng nhất trong số các câu từ A đến D để điền vào chỗ trống hoàn thiện đoạn tư liệu nói về thình hình kinh tế - tài chính của Nhật Bản từ năm 1973 đến năm 1991.
+Câu 17. Chọn một câu trả lời đúng nhất trong số các câu từ A đến D để điền vào chỗ trống hoàn thiện đoạn tư liệu nói về thình hình kinh tế - tài chính của Nhật Bản từ năm 1973 đến năm 1991.
 “ Từ nửa sau những năm 80, Nhật Bản đã vươn lên thành siêu ( a)  cường số 1 thế giới với lượng ( b ) và ngoại tệ gấp 3 lần của Mĩ, gấp 1,5 lần của Cộng hòa Liên bang Đức. Nhật Bản cũng là ( c ) lớn nhất thế giới ” ( Trích SGK Lịch Sử 12 )
 A. a-tài chính, b-dự trữ vàng, c-chủ nợ.                     
 B. a-kinh tế, b-tiền, c-chủ nợ.
 C. a-tài chính, b-tiền, c-chủ nợ.                               
 D. a-k. a-trình độ cao, b-52 vệ tinh, c-Mĩ, Trung Quốc.
  Câu 18. Chọn một câu trả lời đúng nhất trong số các câu từ A đến D để điền vào chỗ trống hoàn thiện đoạn tư liệu nói về  giáo dục và khoa học – kĩ thuật của Nhật Bản trong giai đoạn từ năm 1952 đến năm 1973.
-“ Nhật Bản rất coi trọng giáo dục và khoa học – kĩ thuật, luôn tìm cách đẩy nhanh sự phát triển bằng cách mua bằng ( a ). Tính đến năm ( b ) Nhật Bản đã mua bằng phát minh của nước ngoài trị giá 6 tỉ USD. Khoa học – kĩ thuật và công nghệ Nhật Bản chủ yếu tập trung vào lĩnh vực sản xuất ( c ), đạt được nhiều thành tựu lớn” ( Trích SGK Lịch sử 12 )
+“ Nhật Bản rất coi trọng giáo dục và khoa học – kĩ thuật, luôn tìm cách đẩy nhanh sự phát triển bằng cách mua bằng ( a ). Tính đến năm ( b ) Nhật Bản đã mua bằng phát minh của nước ngoài trị giá 6 tỉ USD . Khoa học – kĩ thuật và công nghệ Nhật Bản chủ yếu tập trung vào lĩnh vực sản xuất ( c ), đạt được nhiều thành tựu lớn” ( Trích SGK Lịch sử 12 )
 A. a-phát minh sáng chế, b-1968, c-ứng dụng dân dụng.       
 B. a-phát minh hiện đại, b-1968, c-ti vi, tủ lạnh.
 C. a-phát minh hiện đại, b-1968, c-ô tô, xe máy.                          
