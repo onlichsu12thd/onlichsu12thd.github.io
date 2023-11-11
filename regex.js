@@ -97,7 +97,7 @@ function renderQ(que) {
     }
     qu.insertAdjacentHTML("beforeend",`
 <form onsubmit="return false;" method="post" name="myForm">
-<br><br><input type="submit" value="Nộp bài" onclick="ansk()"> 
+<br><br><input type="submit" value="Nộp bài" onclick="ansk()" style="font-size: 200%;"> 
 </form>
 `)
 }
@@ -129,7 +129,7 @@ function ansk() {
     res.insertAdjacentHTML("beforeend", `
 <text id="nametext" style="font-family: Calibri;font-size: 300%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Kết quả</text><br>
 <text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(20, 63, 66);text-align: center;display: block;">${ac}/40</text><br><br>
-<button onclick="start()" style="text-align: center;margin:auto; display:block;">Tạo đề mới</button><br><br><br>
+<button onclick="start()" style="text-align: center;margin:auto; display:block;font-size: 200%;">Tạo đề mới</button><br><br><br>
     `)
     console.log(cr);
     if (cr.length > 0) {
