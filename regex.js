@@ -23,7 +23,7 @@ function clean(v) {
 }
 
 function matchA1() {
-    a = k.match(/(?<=(A\.))(.)*(?=(( )*B\.|\n( )*?B)(?!âu))/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
+    a = k.match(/(?<=(A\.))(.)*(?=(( )*B\.|\n( )*?B)(?!ài))/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
     b = k.match(/(?<=(B\.))(.)*(?=(( )*C\.|\n( )*?C)(?!âu))/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
     c = k.match(/(?<=(C\.))(.)*(?=(( )*D\.|\n( )*?D)(?!âu))/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
     d = k.match(/(?<=(D\.))(.)*/gm).map(e=>e.replace(/\s+/g,' ').trim()).filter(xx => xx!=="");
@@ -585,7 +585,10 @@ B. Cách mạng tin học
 C. Cách mạng xanh
 D. Cách mạng trắng                         
  Câu 30: Ấn Độ trở thành một trong những nước sản xuất phần mềm lớn nhất thế giới vì đã tiến hành 
-A. cách mạng công nghiệp         B. cách mạng tin học              C. cách mạng xanh        D. cách mạng trắng                       
+A. cách mạng công nghiệp
+B. cách mạng tin học
+C. cách mạng xanh
+D. cách mạng trắng                       
  Bài 5: CÁC NƯỚC CHÂU PHI VÀ KHU VỰC MĨ LA TINH
 Câu 1: Khu vực đầu tiên bùng nổ phong trào đấu tranh giành độc lập của nhân dân châu Phi là 
 A. Bắc Phi
