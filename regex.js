@@ -313,7 +313,7 @@ C. Xây dựng mô hình chủ nghĩa xã hội chưa phù hợp.      D. Không
 A.  Gagarin  người Liên Xô,năm 1959                        B. Cô- pec-nic nước Anh,năm 1960.
 C. Gagarin. nước Liên Xô,năm 1961                             D. Amstrong,nước Mĩ,năm 1969.
    Câu 11. Hiện nay nền kinh tế Nga đứng hàng thứ mấy trên thế giới
-A. đứng thứ 10 thế giới.   B. đứng thứ 11 thế giới.   C. đứng thứ 12 thế giới.              D. đứng thứ 13 thế giới.
+A. đứng thứ 8 thế giới.   B. đứng thứ 11 thế giới.   C. đứng thứ 12 thế giới.              D. đứng thứ 13 thế giới.
     Câu 12. Hiện nay trên thế giới các nước xã hội chủ nghĩa còn lại là
 A. Lào, Triều Tiên, Trung Quốc, Cam pu chia.                B. Việt Nam, Triều Tiên, Trung Quốc, Cu Ba..
 C. Cu Ba, Cam pu chia, Lào, Trung Quốc.                  D. Trung Quốc, Triều Tiên, Cu ba, Lào.
