@@ -91,7 +91,7 @@ function renderQ(que) {
     }
     qu.insertAdjacentHTML("beforeend",`
 <form onsubmit="return false;" method="post" name="myForm">
-<br><br><input type="submit" value="Nộp bài" onclick="ansk()" style="font-size: 200%;"> 
+<br><br><input type="submit" value="Nộp bài" onclick="ansk()" style="font-size: 250%;"> 
 </form>
 `)
 }
@@ -123,42 +123,42 @@ function ansk() {
     res.insertAdjacentHTML("beforeend", `
 <text id="nametext" style="font-family: Calibri;font-size: 300%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Kết quả</text><br>
 <text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(20, 63, 66);text-align: center;display: block;">${ac}/40</text><br><br>
-<button onclick="start()" style="text-align: center;margin:auto; display:block;font-size: 200%;">Tạo đề mới</button><br><br><br>
+<button onclick="start()" style="text-align: center;margin:auto; display:block;font-size: 250%;">Tạo đề mới</button><br><br><br>
     `)
     if (cr.length > 0) {
         res.insertAdjacentHTML("beforeend", `
-        <text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Những câu đúng</text><br>
+        <text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;display: block;">Những câu đúng</text><br>
         `)
         cr.forEach((e,i) => {
             res.insertAdjacentHTML("beforeend", `
 <div id="ed${i}" style="margin: 5%;">
-<text id="nametext" style="font-family: Calibri;font-size: 200%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;">Câu ${e[0]+1}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">${e[2]["q"]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">A : ${e[2].s[0][0]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">B : ${e[2].s[1][0]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">C : ${e[2].s[2][0]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">D : ${e[2].s[3][0]}</text><br><br><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;">Đáp án đã chọn : ${e[1] === -1 ? "Không chọn" : rconv[e[1]]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;">Đáp án đúng : ${rconv[e[2]["a"]]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;">Câu ${e[0]+1}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 187.5%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">${e[2]["q"]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">A : ${e[2].s[0][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">B : ${e[2].s[1][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">C : ${e[2].s[2][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">D : ${e[2].s[3][0]}</text><br><br><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;">Đáp án đã chọn : ${e[1] === -1 ? "Không chọn" : rconv[e[1]]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;">Đáp án đúng : ${rconv[e[2]["a"]]}</text><br>
 </div>
             `)
         });
   }
     res.insertAdjacentHTML("beforeend", `
 
-<text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;display: block;">Những câu sai</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(243, 54, 29);text-align: center;display: block;">Những câu sai</text><br>
 `)
     wr.forEach((e,i) => {
       res.insertAdjacentHTML("beforeend", `
 <div id="e${i}" style="margin: 5%;">
-<text id="nametext" style="font-family: Calibri;font-size: 200%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;">Câu ${e[0]+1}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">${e[2]["q"]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">A : ${e[2].s[0][0]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">B : ${e[2].s[1][0]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">C : ${e[2].s[2][0]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">D : ${e[2].s[3][0]}</text><br><br><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(243, 54, 29);text-align: center;">Đáp án đã chọn : ${e[1] === -1 ? "Không chọn" : rconv[e[1]]}</text><br>
-<text id="nametext" style="font-family: Calibri;font-size: 120%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;">Đáp án đúng : ${rconv[e[2]["a"]]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 250%;font-weight: bold;color: rgb(37, 117, 122);text-align: center;">Câu ${e[0]+1}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 187.5%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">${e[2]["q"]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">A : ${e[2].s[0][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">B : ${e[2].s[1][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">C : ${e[2].s[2][0]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(29, 158, 243);text-align: center;">D : ${e[2].s[3][0]}</text><br><br><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(243, 54, 29);text-align: center;">Đáp án đã chọn : ${e[1] === -1 ? "Không chọn" : rconv[e[1]]}</text><br>
+<text id="nametext" style="font-family: Calibri;font-size: 150%;font-weight: bold;color: rgb(30, 168, 18);text-align: center;">Đáp án đúng : ${rconv[e[2]["a"]]}</text><br>
 </div>
       `)
     });
